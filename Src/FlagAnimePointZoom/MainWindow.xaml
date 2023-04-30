@@ -1,0 +1,19 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:WpfApp1" x:Class="WpfApp1.MainWindow" Title="MainWindow" Height="450" Width="800">
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+
+    <TextBlock Margin="5" Grid.Column="0" Text="BingCreative " />
+    <TextBlock Margin="5" Grid.Column="1" Text="BingPrecise  Shift Scroll" />
+    <TextBlock Margin="5" Grid.Column="2" Text="OpenAI       " />
+
+    <local:PictureInspectorBingCreative Margin="5" Grid.Column="0" />
+    <local:PictureInspectorBingPrecise  Margin="5" Grid.Column="1" />
+    <local:PictureInspectorOpenAI       Margin="5" Grid.Column="2" />
+
+  </Grid>
+
+</Window>

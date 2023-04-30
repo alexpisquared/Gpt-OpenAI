@@ -1,0 +1,99 @@
+﻿<!--
+  Create a .NET 6.0 XAML code sample with the absolute coolest, most mind-blowing, out of the box animation with many moving parts that will really show off the power of WPF.
+  -->
+<UserControl x:Class="WpfApp1.Cube1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp1"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+    <Viewport3D Name="viewport3D1" MouseWheel="viewport3D1_MouseWheel">
+      <Viewport3D.Camera>
+        <PerspectiveCamera x:Name="camMain" Position="0,0,4"/>
+      </Viewport3D.Camera>
+      <ModelVisual3D>
+        <ModelVisual3D.Content>
+          <DirectionalLight x:Name="dirLightMain" Direction="-1,-1,-1"/>
+        </ModelVisual3D.Content>
+      </ModelVisual3D>
+      <ModelVisual3D>
+        <ModelVisual3D.Content>
+          <!-- Added a Model3DGroup to group the cube and the tetrahedron models -->
+          <Model3DGroup>
+            <!-- Cube model -->
+            <GeometryModel3D>
+              <GeometryModel3D.Geometry>
+                <MeshGeometry3D x:Name="meshMain" Positions="-1,-1,1 1,-1,1 1,1,1 -1,1,1 -1,-1,-1 -1,1,-1 1,1,-1 1,-1,-1" TriangleIndices="0 2 3 0 1 2 4 6 5 4 7 6 0 5 4 0 3 5 2 7 6 2 6 3 0 7 4 0 7 1" TextureCoordinates="0,0.66 0.25,0.66 0.25,0.33 0,0.33 0.25,0.66 0.25,0.33 0.5,0.33 0.5,0.66 0.5,0.66 0.5,0.33 0.75,0.33 0.75,0.66 0.75,0.66 0.75,0.33 1,0.33 1,0.66 .25,.99 .5,.99 .5,.66 .25,.66"/>
+              </GeometryModel3D.Geometry>
+              <GeometryModel3D.Material>
+                <DiffuseMaterial>
+                  <DiffuseMaterial.Brush>
+                    <ImageBrush ImageSource="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/120px-Google_2015_logo.svg.png"/>
+                  </DiffuseMaterial.Brush>
+                </DiffuseMaterial>
+              </GeometryModel3D.Material>
+              <GeometryModel3D.BackMaterial>
+                <DiffuseMaterial Brush="#6600"/>
+              </GeometryModel3D.BackMaterial>
+            </GeometryModel3D>
+            <!-- Tetrahedron model -->
+            <GeometryModel3D>
+              <GeometryModel3D.Geometry>
+                <!-- Added a MeshGeometry3D that defines the tetrahedron shape -->
+
+                <MeshGeometry3D x:Name="meshTetra"
+    Positions="-0.5,-0.5,-0.5 -0.5,-0.5,0.5 -0.5,0.5,-0.5 -0.5,0.5,0.5"
+    TriangleIndices="2 1 3 
+                     2 3 0 
+                     1 2 0 
+                     3 1 0"
+    TextureCoordinates="0,1 1,1 1,0
+                        1,1 1,0 0,1
+                        1,1 0,1 0,0
+                        1,0 0,0 0,1"/>
+
+              </GeometryModel3D.Geometry>
+              <GeometryModel3D.Material>
+                <!-- Added a different material with an image brush to the tetrahedron -->
+                <DiffuseMaterial>
+                  <DiffuseMaterial.Brush>
+                    <ImageBrush ImageSource="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/120px-Google_2015_logo.svg.png"/>
+                  </DiffuseMaterial.Brush>
+                </DiffuseMaterial>
+              </GeometryModel3D.Material>
+              <GeometryModel3D.BackMaterial>
+                <DiffuseMaterial Brush="#6006"/>
+              </GeometryModel3D.BackMaterial>
+            </GeometryModel3D>
+          </Model3DGroup>
+        </ModelVisual3D.Content>
+        <ModelVisual3D.Transform>
+          <RotateTransform3D>
+            <RotateTransform3D.Rotation>
+              <AxisAngleRotation3D x:Name="rotateCube" Axis="10,10,10" Angle="40"/>
+            </RotateTransform3D.Rotation>
+          </RotateTransform3D>
+        </ModelVisual3D.Transform>
+      </ModelVisual3D>
+
+    </Viewport3D>
+
+    <!-- Trigger animation -->
+    <!-- Moved the Triggers property inside the Grid element -->
+    <!-- Changed the RoutedEvent to Grid.Loaded -->
+    <Grid.Triggers>
+      <EventTrigger RoutedEvent="Grid.Loaded">
+        <BeginStoryboard>
+          <Storyboard TargetProperty="(ModelVisual3D.Transform).(RotateTransform3D.Rotation)">
+            <!-- Rotate cube -->
+            <DoubleAnimation Storyboard.TargetName="rotateCube" Storyboard.TargetProperty="Angle" From="40" To="400" Duration="00:00:10" RepeatBehavior="Forever"/>
+          </Storyboard>
+        </BeginStoryboard>
+      </EventTrigger>
+
+    </Grid.Triggers>
+  </Grid>
+</UserControl>
