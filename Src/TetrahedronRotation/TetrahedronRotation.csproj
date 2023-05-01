@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\flag.png" />
+    <None Remove="Images\flag.webp" />
+    <None Remove="Images\Image1.jpg" />
+    <None Remove="Images\image2.jpg" />
+    <None Remove="Images\image3.jpg" />
+    <None Remove="Images\image4.jpg" />
+    <None Remove="Images\image5.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Image1.jpg" />
+    <Resource Include="Images\image2.jpg" />
+    <Resource Include="Images\image3.jpg" />
+    <Resource Include="Images\image4.jpg" />
+    <Resource Include="Images\image5.jpg" />
+  </ItemGroup>
+
+</Project>
