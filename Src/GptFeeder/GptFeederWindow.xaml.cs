@@ -11,22 +11,7 @@ public partial class GptFeederWindow : Window
   void OnSplit(object sender, RoutedEventArgs e) { }
   void OnClose(object sender, RoutedEventArgs e) => Close();
 
-  private void OnZoom(object sender, System.Windows.Input.MouseWheelEventArgs e)
-  {
-    var textbox = sender as TextBox;
-    if (textbox != null)
-    {
-      double currentSize = textbox.FontSize;
-      if (e.Delta > 0)
-      {
-        textbox.FontSize = currentSize + 1;
-      }
-      else
-      {
-        textbox.FontSize = currentSize - 1;
-      }
-    }
-  }
+  private void OnZoom(object sender, System.Windows.Input.MouseWheelEventArgs e) => ((TextBox)sender).FontSize += e.Delta > 0 ? 1 : -1;
 
   void OnNext(object sender, RoutedEventArgs e)
   {
