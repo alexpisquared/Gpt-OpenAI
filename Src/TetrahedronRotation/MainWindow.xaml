@@ -6,8 +6,15 @@
         xmlns:local="clr-namespace:TetrahedronRotation"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-    <local:OpenAIUserControl1 HorizontalAlignment="Left" Margin="183,145,0,0" VerticalAlignment="Top"/>
-
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    <Button Click="OnExit" Grid.Column="2" >
+    </Button>
+    <local:OpenAIUserControl1 Grid.Column="0" HorizontalAlignment="Left" Margin="90,268,0,0" VerticalAlignment="Top"/>
+      <local:BingUC Grid.Column="1" />
   </Grid>
 </Window>
