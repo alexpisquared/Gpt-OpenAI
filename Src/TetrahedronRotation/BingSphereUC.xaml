@@ -6,18 +6,21 @@
              xmlns:local="clr-namespace:TetrahedronRotation"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-    
+  <Grid>
+
     <Viewport3D>
       <Viewport3D.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
           <BeginStoryboard>
             <Storyboard RepeatBehavior="Forever">
-              <DoubleAnimation Storyboard.TargetName="rotation" Storyboard.TargetProperty="Angle" From="0" To="360" Duration="0:0:10"/>
+              <DoubleAnimation Storyboard.TargetName="rotation1" Storyboard.TargetProperty="Angle" From="0" To="360" Duration="0:0:10"/>
+              <DoubleAnimation Storyboard.TargetName="rotation2" Storyboard.TargetProperty="Angle" From="0" To="360" Duration="0:0:10"/>
             </Storyboard>
           </BeginStoryboard>
         </EventTrigger>
       </Viewport3D.Triggers>
+
+
       <Viewport3D.Camera>
         <PerspectiveCamera Position="0,0,4"/>
       </Viewport3D.Camera>
@@ -31,21 +34,47 @@
           <GeometryModel3D>
             <GeometryModel3D.Geometry>
               <MeshGeometry3D Positions="-1,-1,0 1,-1,0 1,1,0 -1,1,0" TriangleIndices="0 1 2 0 2 3"/>
-              <SphereMesh x:Name="sphere" Radius="1" Slices="32" Stacks="32"/>
             </GeometryModel3D.Geometry>
             <GeometryModel3D.Material>
-              <DiffuseMaterial  Brush="Red" />
+              <DiffuseMaterial Brush="Red"/>
             </GeometryModel3D.Material>
             <GeometryModel3D.Transform>
               <RotateTransform3D>
                 <RotateTransform3D.Rotation>
-                  <AxisAngleRotation3D x:Name="rotation" Axis="0,1,0" Angle="0"/>
+                  <AxisAngleRotation3D x:Name="rotation1" Axis="0,1,0" Angle="0"/>
                 </RotateTransform3D.Rotation>
               </RotateTransform3D>
             </GeometryModel3D.Transform>
           </GeometryModel3D>
         </ModelVisual3D.Content>
       </ModelVisual3D>
+
+      <!-- Back Material -->
+      <ModelVisual3D>
+        <ModelVisual3D.Content>
+          <GeometryModel3D>
+            <GeometryModel3D.Geometry>
+              <MeshGeometry3D Positions="-1,-1,0 1,-1,0 1,1,0 -1,1,0" TriangleIndices="0 1 2 0 2 3"/>
+            </GeometryModel3D.Geometry>
+
+            <!-- Back Material -->
+            <GeometryModel3D.BackMaterial>
+              <DiffuseMaterial Brush="Blue"/>
+            </GeometryModel3D.BackMaterial>
+
+            <!-- Transform -->
+            <GeometryModel3D.Transform>
+              <RotateTransform3D>
+                <RotateTransform3D.Rotation>
+                  <AxisAngleRotation3D x:Name="rotation2" Axis="0,1,0" Angle="180"/>
+                </RotateTransform3D.Rotation>
+              </RotateTransform3D>
+            </GeometryModel3D.Transform>
+
+          </GeometryModel3D>
+        </ModelVisual3D.Content>
+      </ModelVisual3D>
+
     </Viewport3D>
   </Grid>
 </UserControl>
