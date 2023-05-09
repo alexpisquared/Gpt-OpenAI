@@ -31,6 +31,7 @@
           <GeometryModel3D>
             <GeometryModel3D.Geometry>
               <MeshGeometry3D Positions="-1,-1,0 1,-1,0 1,1,0 -1,1,0" TriangleIndices="0 1 2 0 2 3"/>
+              <SphereMesh x:Name="sphere" Radius="1" Slices="32" Stacks="32"/>
             </GeometryModel3D.Geometry>
             <GeometryModel3D.Material>
               <DiffuseMaterial  Brush="Red" />
@@ -50,4 +51,8 @@
 </UserControl>
 <!--
   //gpt: Create a .NET 6.0 version Viewport3D XAML element with tab size of 1 without comments of a sphere rotating around 2 axises driven by AxisAngleRotation3D and images\Image1.jpg stretched over the sphere.
+  
+  Create a .NET 6.0 version Viewport3D XAML element with tab size of 1 without comments of a rotating globe driven by AxisAngleRotation3D
+
+  This is a flat squaer - not a sphere.
   -->
