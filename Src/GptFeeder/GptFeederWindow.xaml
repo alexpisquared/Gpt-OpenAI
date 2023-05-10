@@ -14,7 +14,10 @@
         <RowDefinition Height="*"/>
         <RowDefinition Height="25"/>
       </Grid.RowDefinitions>
-      <TextBlock x:Name="Rpt" Grid.Column="1" Margin="5" Grid.Row="0" TextWrapping="Wrap" Text="TextBlock" FontSize="14" Foreground="#009"/>
+
+      <Image     Grid.ColumnSpan="2" Source="/lupdate1.ico"  />
+
+      <TextBlock Grid.ColumnSpan="2" x:Name="Rpt" Margin="5" Grid.Row="0" TextWrapping="Wrap" Text="TextBlock" FontSize="14" Foreground="#009"/>
 
       <TextBox x:Name="Src" FontSize="10" Margin="5" TextWrapping="Wrap" Text="TextBox" Grid.Row="1" Grid.Column="1" MouseWheel="OnZoom" TextChanged="OnTextChanged" AcceptsReturn="True"/>
       <TextBox x:Name="Stp" FontSize="14" Margin="5" TextWrapping="Wrap" Text="TextBox" Grid.Row="1" Grid.Column="3" MouseWheel="OnZoom" />
