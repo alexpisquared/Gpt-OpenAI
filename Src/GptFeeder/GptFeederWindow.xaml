@@ -16,16 +16,15 @@
       </Grid.RowDefinitions>
 
       <Image     Grid.ColumnSpan="2" Source="/lupdate1.ico"  />
-
       <TextBlock Grid.ColumnSpan="2" x:Name="Rpt" Margin="5" Grid.Row="0" TextWrapping="Wrap" Text="TextBlock" FontSize="14" Foreground="#009"/>
+      <Button    Grid.ColumnSpan="4" Content="_X" Click="OnClose" IsCancel="True" BorderThickness="0" HorizontalAlignment="Right" />
 
-      <TextBox x:Name="Src" FontSize="10" Margin="5" TextWrapping="Wrap" Text="TextBox" Grid.Row="1" Grid.Column="1" MouseWheel="OnZoom" TextChanged="OnTextChanged" AcceptsReturn="True"/>
-      <TextBox x:Name="Stp" FontSize="14" Margin="5" TextWrapping="Wrap" Text="TextBox" Grid.Row="1" Grid.Column="3" MouseWheel="OnZoom" />
+      <TextBox x:Name="Src" FontSize="10" Margin="5" TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" MouseWheel="OnZoom" VerticalScrollBarVisibility="Auto" TextChanged="OnTextChanged" AcceptsReturn="True" />
+      <TextBox x:Name="Stp" FontSize="14" Margin="5" TextWrapping="Wrap" Grid.Row="1" Grid.Column="3" MouseWheel="OnZoom" VerticalScrollBarVisibility="Auto" />
 
       <StackPanel Grid.Column="2" Grid.Row="1" >
-        <Button Content="_Next"  Height="22" Margin="5" Width="60" Click="OnNext" IsDefault="True" x:Name="BtnNext" />
-        <Button Content="_Split" Height="22" Margin="5" Width="60" Click="OnSplit" />
-        <Button Content="_X"     Height="22" Margin="5" Width="60" Click="OnClose" IsCancel="True" />
+        <Button Content="_Next" Height="22" Margin="5" Width="60" Click="OnNext"  IsDefault="True" x:Name="BtnNext" />
+        <Button Content="_Beep" Height="22" Margin="5" Width="60" Click="OnSplit" Visibility="Visible" />
       </StackPanel>
     </Grid>
   </Grid>
